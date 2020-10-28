@@ -1,15 +1,22 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div><h1>Blog testowy</h1></div>
+{% for post in posts %}
 <div>
-    <p></p>
-    <h2></h2>
-    <p></p>
+    <p>published:{{ post.publish_date }}</p>
+    <h2><a href="">{{ post.title }}</a> </h2>
+    <p>{{ post.text|linebreaksbr }}</p>
 </div>
+{% endfor %}
 </body>
 </html>
