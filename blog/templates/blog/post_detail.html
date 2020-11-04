@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% extends 'blog/base.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+<div class="post">
+    {% if post.publish_date %}
+    <div class="date">
+    published:{{ post.publish_date }}
+    </div>
+    {% endif %}
+    <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a> </h2>
+    <p>{{ post.text|linebreaksbr }}</p>
+</div>
+{% endblock %}
+</body>
+</html>
